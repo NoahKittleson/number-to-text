@@ -45,12 +45,30 @@ public class NumberToWord {
     digitMap.put(70, "seventy");
     digitMap.put(80, "eighty");
     digitMap.put(90, "ninety");
-    digitMap.put(100, "hundred");
 
-
-
+    HashMap<Integer, String> bigDigitMap = new HashMap<Integer, String>();
+    bigDigitMap.put(100, "hundred");
+    bigDigitMap.put(1000, "thousand");
+    bigDigitMap.put(1000000, "million");
+    bigDigitMap.put(1000000000, "billion");
 
     String finalString = "";
+
+    if (number > 100) {
+      Set<Integer> keyArray = bigDigitMap.keySet();
+      Integer[] testArray = keyArray.toArray(new Integer[bigDigitMap.size()]);
+      Integer max = findMax(testArray, number);
+      for (int i = 1; i * max < number; i++;) {
+        
+      }
+    }
+
+
+
+
+
+
+
     while (number != 0) {
       if (digitMap.containsKey(number)) {
         finalString = finalString.concat(digitMap.get(number));
